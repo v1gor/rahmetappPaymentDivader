@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="25dp">
+
+    <Button
+        android:id="@+id/ButtonPay"
+        android:layout_width="220dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="60dp"
+        android:text="Оплатить"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonShare"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+
+    <Button
+        android:id="@+id/ButtonShare"
+        android:layout_width="220dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="58dp"
+        android:onClick="onButtonPayClick"
+        android:text="Разделить оплату"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonJoin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonPay" />
+
+    <Button
+        android:id="@+id/ButtonJoin"
+        android:layout_width="220dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="109dp"
+        android:onClick="onButtonJoinClick"
+        android:text="Присоединиться к оплате"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonShare" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="66dp"
+        android:layout_marginTop="62dp"
+        android:ems="10"
+        android:hint="Сумма"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonPay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
