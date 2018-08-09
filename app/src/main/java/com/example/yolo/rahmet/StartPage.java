@@ -18,32 +18,37 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Join extends AppCompatActivity {
+public class StartPage extends AppCompatActivity {
 
+    public static int cash;
+    public static int cash_back;
+    public  static  String username_global;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join);
+        setContentView(R.layout.activity_start_page);
 
-        final Button join_button;
-        final EditText namekazan;
-        final String json_url = "https://m81kko67a8.execute-api.us-east-1.amazonaws.com/v0/rahmet-api";
+        Button next_bnt;
+        final EditText login, password;
         final TextView errortxt;
-        errortxt = (TextView)findViewById(R.id.textView4);
-        namekazan = (EditText)findViewById(R.id.editText2);
-        join_button = (Button)findViewById(R.id.join_btn);
-        join_button.setOnClickListener(new View.OnClickListener() {
 
+        errortxt = findViewById(R.id.error_txt);
+        next_bnt = (Button)findViewById(R.id.next_btn);
+        login = (EditText)findViewById(R.id.login);
+        password = (EditText)findViewById(R.id.password);
+        final String json_url = "https://m81kko67a8.execute-api.us-east-1.amazonaws.com/v0/rahmet-api";
 
-
+        next_bnt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 JSONObject obj = new JSONObject();
 
                 try {
-                    obj.put("procedure", "join");
-                    obj.put("name_of_kazan", namekazan.getText().toString());
+                    obj.put("procedure", "login");
+                    obj.put("username", login.getText().toString());
+                    obj.put("password", password.getText().toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -53,17 +58,20 @@ public class Join extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONArray jsonArray = response.getJSONArray("Response");
-                            int yespa = jsonArray.getJSONObject(0).getInt("exists");
+                            int yespa = jsonArray.getJSONObject(0).getInt("logged");
+
                             if (yespa == 1) {
-                                Intent intent = new Intent(Join.this, Lobby.class);
-                                String name_of_kazan = namekazan.getText().toString();
-                                intent.putExtra("NAME", name_of_kazan);
-                                startActivity(intent);
+                                username_global = login.getText().toString();
+                                cash = jsonArray.getJSONObject(0).getInt("cash");
+                                cash_back = jsonArray.getJSONObject(0).getInt("cash_back");
+
+                                Intent myIntent = new Intent(getBaseContext(),   Screen.class);
+                                startActivity(myIntent);
                             }
                             else
                             {
 
-                                errortxt.setText("Казан под таким именем не существует");
+                                errortxt.setText("Логин или пароль введен не правильно, попробуйте еще");
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -73,23 +81,12 @@ public class Join extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError goodnews) {
-                        Toast.makeText(Join.this, goodnews.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(StartPage.this, goodnews.toString(), Toast.LENGTH_LONG).show();
 
                     }
                 });
-                MySingleton.getmInstance(Join.this).addToRequestque(jsonObjectRequest);
-
+                MySingleton.getmInstance(StartPage.this).addToRequestque(jsonObjectRequest);
             }
         });
-    }
-
-    public void onButtonBackClick(View v){
-        Intent myIntent = new Intent(getBaseContext(),   MainActivity.class);
-        startActivity(myIntent);
-    }
-
-    public void onButtonJoinClick(View v){
-        Intent myIntent = new Intent(getBaseContext(),   Lobby.class);
-        startActivity(myIntent);
     }
 }

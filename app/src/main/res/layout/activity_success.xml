@@ -4,53 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Success">
+    tools:context=".Success"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
+        android:id="@+id/sum_of_payment"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginBottom="38dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:text="Сумма оплаты"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="36dp"
-        android:text="Ваша оплата"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="188dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="111dp"
+        android:layout_marginBottom="37dp"
         android:layout_marginLeft="38dp"
         android:layout_marginStart="38dp"
+        android:text="Сумма оплаты"
+        app:layout_constraintBottom_toTopOf="@+id/user_pay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/user_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:text="Ваша оплата"
+        app:layout_constraintBottom_toTopOf="@+id/user_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sum_of_payment" />
+
+    <TextView
+        android:id="@+id/user_back"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="25dp"
         android:text="Ваш кэшбек"
+        app:layout_constraintBottom_toTopOf="@+id/okay"
+        app:layout_constraintStart_toStartOf="@+id/okay"
+        app:layout_constraintTop_toBottomOf="@+id/user_pay" />
+
+    <Button
+        android:id="@+id/okay"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:text="Okay!"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/user_back" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="169dp"
-        android:layout_height="104dp"
-        android:layout_marginBottom="86dp"
-        android:layout_marginTop="102dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:id="@+id/imageView"
+        android:layout_width="151dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="82dp"
+        android:layout_marginTop="67dp"
+        app:layout_constraintBottom_toTopOf="@+id/sum_of_payment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/index" />
+        app:srcCompat="@android:drawable/checkbox_on_background" />
 </android.support.constraint.ConstraintLayout>
