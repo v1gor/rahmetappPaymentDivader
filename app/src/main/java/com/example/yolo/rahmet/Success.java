@@ -55,9 +55,9 @@ public class Success extends AppCompatActivity {
                     int user_sum = jsonArray.getJSONObject(0).getInt("your_payment");
                     int back = jsonArray.getJSONObject(0).getInt("your_cash_back");
 
-                    sum_of_payment.setText("Sum: " + String.valueOf(sum));
-                    user_pay.setText("You payed: " + String.valueOf(user_sum));
-                    user_back.setText("Your cashback is: " + String.valueOf(back));
+                    sum_of_payment.setText("Сумма оплаты: " + String.valueOf(sum));
+                    user_pay.setText("Ваша оплата: " + String.valueOf(user_sum));
+                    user_back.setText("Ваш кэшбек: " + String.valueOf(back));
 
                 } catch (JSONException e) {
                     e.printStackTrace();

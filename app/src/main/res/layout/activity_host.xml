@@ -25,7 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="84dp"
         android:layout_marginRight="84dp"
+        android:background="@android:color/holo_red_light"
         android:text="Создать"
+        android:textColor="@android:color/white"
         app:layout_constraintBaseline_toBaselineOf="@+id/ButtonBack"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -36,8 +38,10 @@
         android:layout_marginBottom="140dp"
         android:layout_marginEnd="38dp"
         android:layout_marginRight="38dp"
+        android:background="@android:color/holo_red_light"
         android:onClick="onButtonBackClick"
         android:text="Назад"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ButtonCreate" />
 
