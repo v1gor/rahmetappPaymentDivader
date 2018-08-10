@@ -101,7 +101,7 @@ public class FillKazan extends AppCompatActivity {
                             }
                             else
                                 {
-                                    error_mes.setText("Введите корректную сумму");
+                                    error_mes.setText("Ввдена сумма больше нужного");
                             }
 
                         } catch (JSONException e) {
@@ -127,9 +127,5 @@ public class FillKazan extends AppCompatActivity {
         startActivity(myIntent);
     }
 
-    public void onButtonPayClick(View v){
-        //some action
-        Intent myIntent = new Intent(getBaseContext(),   Lobby.class);
-        startActivity(myIntent);
-    }
+
 }

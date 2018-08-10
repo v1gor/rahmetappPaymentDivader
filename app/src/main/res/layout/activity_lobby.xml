@@ -122,7 +122,6 @@
         android:layout_marginBottom="31dp"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
-        android:background="@android:color/holo_red_light"
         android:enabled="false"
         android:onClick="onButtonEndClick"
         android:text="Завершить"

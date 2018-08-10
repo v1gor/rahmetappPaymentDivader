@@ -66,6 +66,7 @@ public class Lobby extends AppCompatActivity {
                     if (left_price == 0)
                     {
                         left_sum.setText("Казан успешно пополнен:) нажмите кнопу завершить");
+                        btn_end.setBackgroundColor(0xFFFF0000);
                     }
                     else
                     {
@@ -142,7 +143,15 @@ public class Lobby extends AppCompatActivity {
                             JSONArray history_of_payment  = his.getJSONArray("history");
 
                             all_sum.setText(String.valueOf(price));
-                            left_sum.setText(String.valueOf(left_price));
+                            if (left_price == 0)
+                            {
+                                left_sum.setText("Казан успешно пополнен:) нажмите кнопу завершить");
+                                btn_end.setBackgroundColor(0xFFFF0000);
+                            }
+                            else
+                            {
+                                left_sum.setText(String.valueOf(left_price));
+                            }
                             btn_end.setEnabled(left_price == 0);
                             String text = "";
 

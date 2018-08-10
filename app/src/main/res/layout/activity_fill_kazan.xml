@@ -56,7 +56,6 @@
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:background="@android:color/holo_red_light"
-        android:onClick="onButtonPayClick"
         android:text="Оплатить"
         android:textColor="@android:color/white"
         app:layout_constraintBaseline_toBaselineOf="@+id/button9"
